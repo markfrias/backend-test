@@ -35,6 +35,7 @@ const fileHandler = require('./upload');
 
 
 const app = express();
+app.use('/uploads', express.static('uploads'));
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -59,7 +60,7 @@ app.use((err, req, res, next) => {
 
 
 
-app.use('/uploads', express.static('uploads'));
+
 
 app.listen(_port, (err) => {
     if (err) { throw err; }
@@ -98,6 +99,6 @@ app.post('/images/url', (req, res, next) => {
                 }
              })
         })
-        .catch((err) => console.error(err))
-        res.json(err);
+        .catch((err) => console.error(err));
+        
 } );
