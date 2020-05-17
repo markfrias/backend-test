@@ -99,7 +99,7 @@ app.post('/images/url', (req, res, next) => {
                 }
              })
         })
-        .catch((err) => {console.error(err); res.json(err)})
+        .catch((err) => {console.error(err); res.json({error: err}, {success: 0})})
 
         
 } );
